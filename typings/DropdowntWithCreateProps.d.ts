@@ -4,13 +4,26 @@
  * @author Mendix UI Content Team
  */
 import { CSSProperties } from "react";
+import { ActionValue, EditableValue, ListValue, ListActionValue, ListAttributeValue } from "mendix";
+import { Big } from "big.js";
 
 export interface DropdowntWithCreateContainerProps {
     name: string;
     class: string;
     style?: CSSProperties;
     tabIndex?: number;
-    sampleText: string;
+    searchValue: EditableValue<string>;
+    options: ListValue;
+    optionValue: ListAttributeValue<string | Big>;
+    optionLabel: ListAttributeValue<string>;
+    selectList?: ListValue;
+    optionValueM?: ListAttributeValue<string | Big>;
+    value?: EditableValue<string>;
+    onSelect?: ListActionValue;
+    onDeselect?: ListActionValue;
+    onDeselectM?: ListActionValue;
+    isMultiConst: boolean;
+    onCreate?: ActionValue;
 }
 
 export interface DropdowntWithCreatePreviewProps {
@@ -18,5 +31,16 @@ export interface DropdowntWithCreatePreviewProps {
     style: string;
     styleObject?: CSSProperties;
     readOnly: boolean;
-    sampleText: string;
+    searchValue: string;
+    options: {} | { type: string } | null;
+    optionValue: string;
+    optionLabel: string;
+    selectList: {} | { type: string } | null;
+    optionValueM: string;
+    value: string;
+    onSelect: {} | null;
+    onDeselect: {} | null;
+    onDeselectM: {} | null;
+    isMultiConst: boolean;
+    onCreate: {} | null;
 }

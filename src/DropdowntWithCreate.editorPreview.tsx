@@ -1,10 +1,9 @@
 import { Component, ReactNode, createElement } from "react";
-import { HelloWorldSample } from "./components/HelloWorldSample";
 import { DropdowntWithCreatePreviewProps } from "../typings/DropdowntWithCreateProps";
 
 export class preview extends Component<DropdowntWithCreatePreviewProps> {
     render(): ReactNode {
-        return <HelloWorldSample sampleText={this.props.sampleText} />;
+        return <span>No Preview</span>;
     }
 }
 
