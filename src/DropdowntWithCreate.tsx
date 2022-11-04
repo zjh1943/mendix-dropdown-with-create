@@ -1,4 +1,4 @@
-import { createElement, Fragment, useCallback, useEffect, useMemo, useState } from "react";
+import { createElement, Fragment, ReactNode, useCallback, useEffect, useMemo, useState } from "react";
 import { ValueStatus } from "mendix";
 import { attribute, literal, contains } from "mendix/filters/builders";
 import { Button, Select } from "antd";
@@ -155,6 +155,40 @@ export default function DropdownWithCreate(props: DropdowntWithCreateContainerPr
 
     useWhyDidYouUpdate(props.name, { ...props, _options: options, showCreate, searchValue });
 
+    let dropdownRender: any = null;
+    if (props.isCreateShow) {
+        dropdownRender = (menu: any) => (
+            <div className="mxcn-select-dropdown">
+                {menu}
+                {showCreate ? (
+                    <div aria-selected="false" className="ant-select-item ant-select-item-option">
+                        <div className="ant-select-item-option-content">
+                            <Button
+                                loading={onCreateLoading}
+                                block
+                                type="text"
+                                onClick={() => {
+                                    onCreate(searchValue);
+                                }}
+                            >
+                                创建并选择&nbsp;
+                                <span title={searchValue} className="on-create-text">
+                                    {searchValue}
+                                </span>
+                            </Button>
+                        </div>
+                        <span
+                            className="ant-select-item-option-state"
+                            unselectable="on"
+                            aria-hidden="true"
+                            style={{ userSelect: "none" }}
+                        ></span>
+                    </div>
+                ) : null}
+            </div>
+        );
+    }
+
     const selectReactNode = (
         <Select
             loading={props.options.status === ValueStatus.Loading}
@@ -206,36 +240,7 @@ export default function DropdownWithCreate(props: DropdowntWithCreateContainerPr
             options={dropdownVisible ? (options ? options : preOptions) : options}
             onSearch={setSearchValue}
             showSearch
-            dropdownRender={menu => (
-                <div className="mxcn-select-dropdown">
-                    {menu}
-                    {showCreate ? (
-                        <div aria-selected="false" className="ant-select-item ant-select-item-option">
-                            <div className="ant-select-item-option-content">
-                                <Button
-                                    loading={onCreateLoading}
-                                    block
-                                    type="text"
-                                    onClick={() => {
-                                        onCreate(searchValue);
-                                    }}
-                                >
-                                    创建并选择&nbsp;
-                                    <span title={searchValue} className="on-create-text">
-                                        {searchValue}
-                                    </span>
-                                </Button>
-                            </div>
-                            <span
-                                className="ant-select-item-option-state"
-                                unselectable="on"
-                                aria-hidden="true"
-                                style={{ userSelect: "none" }}
-                            ></span>
-                        </div>
-                    ) : null}
-                </div>
-            )}
+            dropdownRender={dropdownRender}
         ></Select>
     );
 

@@ -89,6 +89,10 @@
                 </property>
             </propertyGroup>
             <propertyGroup caption="即时创建">
+                <property key="isCreateShow" type="boolean" defaultValue="true">
+                    <caption>即时创建开关</caption>
+                    <description>是否显示即时创建选项</description>
+                </property>
                 <property key="onCreate" type="action">
                     <caption>即时创建</caption>
                     <description>即时创建一个不存在的选项</description>

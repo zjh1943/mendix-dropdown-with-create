@@ -21,6 +21,7 @@ export interface DropdowntWithCreateContainerProps {
     onDeselect?: ListActionValue;
     onDeselectM?: ListActionValue;
     isMultiConst: boolean;
+    isCreateShow: boolean;
     onCreate?: ActionValue;
 }
 
@@ -37,5 +38,6 @@ export interface DropdowntWithCreatePreviewProps {
     onDeselect: {} | null;
     onDeselectM: {} | null;
     isMultiConst: boolean;
+    isCreateShow: boolean;
     onCreate: {} | null;
 }
