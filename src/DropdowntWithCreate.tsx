@@ -5,7 +5,8 @@ import { Button, Select } from "antd";
 
 import { DropdowntWithCreateContainerProps } from "../typings/DropdowntWithCreateProps";
 
-import "./ui/index.scss";
+import "./ui/DropdowntWithCreate.scss";
+
 import { useDebounceFn, useInterval, useMount, usePrevious, useWhyDidYouUpdate } from "ahooks";
 import { Alert } from "./components/Alert";
 
@@ -157,7 +158,7 @@ export default function DropdownWithCreate(props: DropdowntWithCreateContainerPr
     const selectReactNode = (
         <Select
             loading={props.options.status === ValueStatus.Loading}
-            className="mxcn-select"
+            className="mxcn-select form-control"
             allowClear
             maxTagCount="responsive"
             open={open}

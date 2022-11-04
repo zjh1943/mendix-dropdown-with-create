@@ -3,15 +3,13 @@
  * WARNING: All changes made to this file will be overwritten
  * @author Mendix UI Content Team
  */
-import { CSSProperties } from "react";
 import { ActionValue, EditableValue, ListValue, ListActionValue, ListAttributeValue } from "mendix";
 import { Big } from "big.js";
 
 export interface DropdowntWithCreateContainerProps {
     name: string;
-    class: string;
-    style?: CSSProperties;
     tabIndex?: number;
+    id: string;
     searchValue: EditableValue<string>;
     options: ListValue;
     optionValue: ListAttributeValue<string | Big>;
@@ -27,9 +25,6 @@ export interface DropdowntWithCreateContainerProps {
 }
 
 export interface DropdowntWithCreatePreviewProps {
-    className: string;
-    style: string;
-    styleObject?: CSSProperties;
     readOnly: boolean;
     searchValue: string;
     options: {} | { type: string } | null;

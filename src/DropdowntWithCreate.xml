@@ -52,6 +52,9 @@
                     </attributeTypes>
                 </property>
             </propertyGroup>
+            <propertyGroup caption="System Properties">
+                <systemProperty key="Label" />
+            </propertyGroup>
         </propertyGroup>
         <propertyGroup caption="常规">
             <propertyGroup caption="常规">
